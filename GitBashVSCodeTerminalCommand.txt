@@ -1,0 +1,324 @@
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject
+$ git init
+Initialized empty Git repository in C:/Users/engya/OneDrive/Desktop/GitProject/.git/
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ touch file1.txt
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ touch file2.txt file3.txt
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file1.txt
+        file2.txt
+        file3.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git add *
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   file1.txt
+        new file:   file2.txt
+        new file:   file3.txt
+
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git commit -m "Add three files"
+[master (root-commit) b66a040] Add three files
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file1.txt
+ create mode 100644 file2.txt
+ create mode 100644 file3.txt
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git log
+commit b66a0402cc34d5004cd34ff5d120c5761b6b1068 (HEAD -> master)
+Author: Adewale Oyedele <adeoyedewale1@gmail.com>
+Date:   Tue May 7 05:03:03 2024 -0500
+
+    Add three files
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git log --oneline
+b66a040 (HEAD -> master) Add three files
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git diff
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git add *
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   file1.txt
+
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git commit -m "Add content in file1"
+[master b989cdd] Add content in file1
+ 1 file changed, 1 insertion(+)
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git log --oneline
+b989cdd (HEAD -> master) Add content in file1
+b66a040 Add three files
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git branch
+* master
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git remote
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git remote add https://github.com/adeoyedewale/git-practice.git
+usage: git remote add [<options>] <name> <url>
+
+    -f, --[no-]fetch      fetch the remote branches
+    --[no-]tags           import all tags and associated objects when fetching
+                          or do not fetch any tag at all (--no-tags)
+    -t, --[no-]track <branch>
+                          branch(es) to track
+    -m, --[no-]master <branch>
+                          master branch
+    --[no-]mirror[=(push|fetch)]
+                          set up remote as a mirror to push to or fetch from
+
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git remote
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git remote add origin https://github.com/adeoyedewale/git-practice.git
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git remote
+origin
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git remote -v
+origin  https://github.com/adeoyedewale/git-practice.git (fetch)
+origin  https://github.com/adeoyedewale/git-practice.git (push)
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git branch
+* master
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git push
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git push --set-upstream origin master
+remote: Permission to adeoyedewale/git-practice.git denied to utasmartplacement.
+fatal: unable to access 'https://github.com/adeoyedewale/git-practice.git/': The requested URL returned error: 403
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=openssl
+http.sslcainfo=C:/Program Files/Git/mingw64/etc/ssl/certs/ca-bundle.crt
+core.autocrlf=true
+core.fscache=true
+core.symlinks=true
+core.editor="C:\\Program Files\\Notepad++\\notepad++.exe" -multiInst -notabbar -nosession -noPlugin
+core.fsmonitor=true
+pull.rebase=false
+credential.helper=manager
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+user.email=adeoyedewale1@gmail.com
+user.name=Adewale Oyedele
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+filter.lfs.clean=git-lfs clean -- %f
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.ignorecase=true
+remote.origin.url=https://github.com/adeoyedewale/git-practice.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git push --set-upstream origin master
+remote: Permission to adeoyedewale/git-practice.git denied to utasmartplacement.
+fatal: unable to access 'https://github.com/adeoyedewale/git-practice.git/': The requested URL returned error: 403
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git config user.name adeoyedewale
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git config user.email adeoyedewale1@gmail.com
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git push --set-upstream origin master
+remote: Permission to adeoyedewale/git-practice.git denied to utasmartplacement.
+fatal: unable to access 'https://github.com/adeoyedewale/git-practice.git/': The requested URL returned error: 403
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git config --global user.name adeoyedewale
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git config --global user.email adeoyedewale1@gmail.com
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git push --set-upstream origin master
+remote: Permission to adeoyedewale/git-practice.git denied to utasmartplacement.
+fatal: unable to access 'https://github.com/adeoyedewale/git-practice.git/': The requested URL returned error: 403
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git push --set-upstream origin master
+To https://github.com/adeoyedewale/git-practice.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/adeoyedewale/git-practice.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git pull origin
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 875 bytes | 38.00 KiB/s, done.
+From https://github.com/adeoyedewale/git-practice
+ * [new branch]      master     -> origin/master
+You asked to pull from the remote 'origin', but did not specify
+a branch. Because this is not the default configured remote
+for your current branch, you must specify a branch on the command line.
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git pull origin/master
+fatal: 'origin/master' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git pull origin master
+From https://github.com/adeoyedewale/git-practice
+ * branch            master     -> FETCH_HEAD
+fatal: refusing to merge unrelated histories
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git fetch
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git log --oneline
+b989cdd (HEAD -> master) Add content in file1
+b66a040 Add three files
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git merge
+fatal: No remote for the current branch.
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git fetch origin master
+From https://github.com/adeoyedewale/git-practice
+ * branch            master     -> FETCH_HEAD
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git log --oneline
+b989cdd (HEAD -> master) Add content in file1
+b66a040 Add three files
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git merge
+fatal: No remote for the current branch.
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git merge origin master
+merge: origin - not something we can merge
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git push --set-upstream origin master
+To https://github.com/adeoyedewale/git-practice.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/adeoyedewale/git-practice.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git pull --rebase origin master
+From https://github.com/adeoyedewale/git-practice
+ * branch            master     -> FETCH_HEAD
+Successfully rebased and updated refs/heads/master.
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git log --oneline
+968a22f (HEAD -> master) Add content in file1
+a159a25 Add three files
+5a4357f (origin/master) Initial commit
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$ git push --set-upstream origin master
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 555 bytes | 111.00 KiB/s, done.
+Total 6 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/adeoyedewale/git-practice.git
+   5a4357f..968a22f  master -> master
+branch 'master' set up to track 'origin/master'.
+
+engya@Eruobodo MINGW64 ~/OneDrive/Desktop/GitProject (master)
+$
